@@ -1,0 +1,36 @@
+body{
+    width: 960px;
+    padding: 0 4%;
+}
+
+.container{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 50px 600px 300px 300px 20px;
+
+}
+
+.header{
+    background-color: antiquewhite;
+}
+
+.main-visual{
+    background-color: aqua;
+}
+
+.main-visual img{
+    width: 100%;
+    height: 600px;
+}
+
+.introduction{
+    background-color: aquamarine;
+}
+
+.profile{
+    background-color: beige;
+}
+
+.footer{
+    background-color: bisque;
+}
