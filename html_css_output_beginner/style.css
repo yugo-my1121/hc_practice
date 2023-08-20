@@ -132,7 +132,7 @@ profile-item1 p{
     .container{
         width: 600px;
         grid-template-columns: 1fr;
-        grid-template-rows: 50px 600px 300px 850px 20px;
+        grid-template-rows: 50px 600px 300px 950px 20px;
     }
     .header{
         width: 100%;
