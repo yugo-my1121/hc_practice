@@ -2,24 +2,9 @@ require 'date'
 require 'optparse'
 
 def display_calender(year,month)
-  # 月名の辞書を定義（英語から日本語へのマッピング）
-  month_names = {
-    'January' => '1月',
-    'February' => '2月',
-    'March' => '3月',
-    'April' => '4月',
-    'May' => '5月',
-    'June' => '6月',
-    'July' => '7月',
-    'August' => '8月',
-    'September' => '9月',
-    'October' => '10月',
-    'November' => '11月',
-    'December' => '12月'
-  }
   #カレンダーのデータ
   karenderDate = Date.new(year,month)
-  month_name = month_names[karenderDate.strftime('%B')]
+  month_name = karenderDate.strftime('%m')
 
   #曜日の始まり
   startDay = karenderDate.cwday
@@ -27,26 +12,11 @@ def display_calender(year,month)
   lastDay = Date.new(year,month,-1).day;
 
   #曜日の表示
-  puts "#{month_name} #{year}".center(20)
+  puts "#{month_name}月 #{year}".center(20)
   puts "月 火 水 木 金 土 日"
 
   #曜日のスタート位置を決める
-  case startDay
-  when 1 then
-    nil
-  when 2 then
-    print "#{"   " * 1}"
-  when 3 then
-    print "#{"   " * 2}"
-  when 4 then
-    print "#{"   " * 3}"
-  when 5 then
-    print "#{"   " * 4}"
-  when 6 then
-    print "#{"   " * 5}"
-  when 7 then
-    print "#{"   " * 6}"
-  end
+  print "#{"   " * (startDay - 1) }"
 
   day = 1
   while day <= lastDay do
