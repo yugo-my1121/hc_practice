@@ -14,7 +14,7 @@ machine = Machine.new
 
 
 #モンスターの購入処理で本数を減らす
-puts "本数:#{machine.Purchase(suica,"モンスター")}"
+puts "本数:#{machine.purchase(suica,"モンスター")}"
 
 #売り上げ
 puts "売り上げ:#{machine.sales}"
@@ -32,22 +32,22 @@ puts machine.buy_drink_list(suica)
 machine.juce_replenishment("いろはす",5)
 puts "========================================"
 #指定したジュースの在庫確認
-puts "いろはすの在庫:#{machine.Stock_Juce("いろはす")}"
+puts "いろはすの在庫:#{machine.stock_juce("いろはす")}"
 
 # いろはす購入
-puts "残高から引く額:#{machine.Purchase(suica,"いろはす")}"
+puts "残高から引く額:#{machine.purchase(suica,"いろはす")}"
 
 # いろはすの在庫
-puts "いろはすの在庫:#{machine.Stock_Juce("いろはす")}"
+puts "いろはすの在庫:#{machine.stock_juce("いろはす")}"
 
 # Suica残高
 puts "残高:#{suica.balance}"
 
 # モンスター購入
-puts "残高から引く額:#{machine.Purchase(suica,"モンスター")}"
+puts "残高から引く額:#{machine.purchase(suica,"モンスター")}"
 
 #モンスターの在庫
-puts "いろはすの在庫:#{machine.Stock_Juce("モンスター")}"
+puts "いろはすの在庫:#{machine.stock_juce("モンスター")}"
 
 # Suica残高
 puts "残高:#{suica.balance}"
