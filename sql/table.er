@@ -1,0 +1,68 @@
+[users] {bgcolor: "#d0e0d0"}
+  *user_id {label: "bigint, not null, unique" }
+  name {label: "varchar, not null"}
+  email {label: "varchar, not null, uniq" }
+  telephone_number { label: "varchar, not null"}
+  birth_day { label: "varchar, not null"}
+  place { label: "varchar "}
+  web_site { label: "varchar "}
+  profile_image { label: "varchar, not null "}
+  avatar_image { label: "varchar, not null "}
+  tweet_id { label: "bigint, not null, FK(tweet)"}
+  good_id { label: "bigint, not null, FK(good)"}
+  retweet_id { label: "bigint, not null, FK(retweet)"}
+  follow_id { label: "bigint, not null, FK(follow)"}
+  message_id { label: "bigint, not null, FK(message)"}
+  bookmark_id { label: "bigint, not null, FK(bookmark)"}
+  created_at { label: "datatime, not null"}
+  updated_at { label: "datatime, not null"}
+[tweet]
+  *tweet_id {label: "bigint, not null, uniq"}
+  user_id {label: "bigint, not null, FK(users), uniq"}
+  tweet { label: "varchar, not null"}
+  created_at { label: "datatime, not null"}
+  updated_at { label: "datatime, not null"}
+[good]
+  *good_id {label: "bigint, not null, uniq"}
+  user_id {label: "bigint, not null, FK(users), uniq"}
+  name {label: "varchar, not null"}
+  to_name {label: "varchar, not null"}
+  created_at { label: "datatime, not null"}
+  updated_at { label: "datatime, not null"}
+[retweet]
+  *retweet_id {label: "bigint, not null, uniq"}
+  user_id {label: "bigint, not null, FK(users), uniq"}
+  tweet { label: "varchar, not null"}
+  created_at { label: "datatime, not null"}
+  updated_at { label: "datatime, not null"}
+[follow]
+  *follow_id {label: "bigint, not null, uniq"}
+  user_id {label: "bigint, not null, FK(users), uniq"}
+  to_name {label: "varchar, not null"}
+  created_at { label: "datatime, not null"}
+  updated_at { label: "datatime, not null"}
+[message]
+  *message_id {label: "bigint, not null, uniq"}
+  message {label: "varchar, not null"}
+  user_id {label: "bigint, not null, FK(users), uniq"}
+  to_name {label: "varchar, not null"}
+  created_at { label: "datatime, not null"}
+  updated_at { label: "datatime, not null"}
+[bookmark]
+  *bookmark_id {label: "bigint, not null, uniq"}
+  user_id {label: "bigint, not null, FK(users), uniq"}
+  to_name {label: "varchar, not null"}
+  created_at { label: "datatime, not null"}
+  updated_at { label: "datatime, not null"}
+
+# Cardinality    Syntax
+# 0 or 1         ?
+# exactly 1      1
+# 0 or more      *
+# 1 or more      +
+users *--1 `tweet`
+users *--1 `good`
+users *--1 `retweet`
+users *--1 `follow`
+users *--1 `message`
+users *--1 `bookmark`
